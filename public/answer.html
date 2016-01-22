@@ -114,10 +114,29 @@
       top: 200px;
     }
     .video-recorder-initial {
-      background: blue;
+      background: none;
     }
+    .video-recorder-initial .hero-img {
+      color: #B0BEC5;
+    }
+
+    .video-recorder-initial .btn-primary {
+      background-color: #7986CB;
+    }
+
     </style>
-    <ziggeo ziggeo-width=320 ziggeo-height=240></ziggeo>
+    <!-- <ziggeo width="375" height="281"></ziggeo> -->
+    <script>
+      (function(){
+        var element = document.createElement('ziggeo');
+        var width = window.innerWidth;
+        var height = width / (4/3);
+
+        element.setAttribute('ziggeo-width', width);
+        element.setAttribute('ziggeo-height', height);
+        document.body.appendChild(element);
+      })();
+    </script>
 
     <script src="material.js"></script>
   </body>
