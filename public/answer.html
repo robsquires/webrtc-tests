@@ -89,7 +89,7 @@
           .demo-card-wide.mdl-card {
             width: 100%;
             margin-top: 16px;
-            min-height: 320px;
+            min-height: 390px;
           }
           .demo-card-wide > .mdl-card__title {
             color: #fff;
@@ -112,30 +112,45 @@
     <style>
     .video-recorder-outer {
       top: 200px;
+      z-index: 9999;
+      margin-left: 8px;
     }
-    .video-recorder-initial {
-      background: none;
+    .video-recorder-initial,
+    .video-uploader-upload,
+    .video-recorder-error,
+    .video-recorder-progress {
+      background: white;
     }
-    .video-recorder-initial .hero-img {
+    .video-recorder-initial .hero-img,
+    .video-uploader-upload .hero-img {
       color: #B0BEC5;
     }
 
-    .video-recorder-initial .btn-primary {
+    .video-recorder-initial .btn-primary,
+    .video-uploader-upload .btn-primary {
       background-color: #7986CB;
+    }
+    .video-recorder-initial .btn-primary:hover,
+    .video-uploader-upload .btn-primary:hover {
+      background-color: #3f51b5;
     }
 
     </style>
     <!-- <ziggeo width="375" height="281"></ziggeo> -->
     <script>
-      (function(){
+      var initRecorder = function(){
         var element = document.createElement('ziggeo');
-        var width = window.innerWidth;
+        var width = document.querySelector('.mdl-card').offsetWidth;
         var height = width / (4/3);
 
         element.setAttribute('ziggeo-width', width);
         element.setAttribute('ziggeo-height', height);
+        element.setAttribute('ziggeo-background-color', 'none')
         document.body.appendChild(element);
-      })();
+      };
+      document.addEventListener("DOMContentLoaded", function(event) {
+        initRecorder();
+      });
     </script>
 
     <script src="material.js"></script>
