@@ -137,9 +137,9 @@
             <div class="mdl-card__title">
               <h2 class="mdl-card__title-text">Arcadia Group</h2>
             </div>
-            <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="answer.html">
+            <button class="answer-button mdl-button mdl-js-button mdl-js-ripple-effect">
               Answer Now
-            </a>
+            </button>
           </div>
 
           <div class="demo-card-wide demo-card-wide2 mdl-card mdl-shadow--2dp">
@@ -201,6 +201,12 @@
           </g>
         </defs>
       </svg>
+    <script>
+      var button = document.querySelector('.answer-button');
+      button.addEventListener("click", function( event ) {
+        document.location = 'answer.html';
+      });
+    </script>
     <script src="material.js"></script>
   </body>
 </html>
