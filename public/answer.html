@@ -74,11 +74,25 @@
         background-color: #3f51b5;
         color:white;
       }
+      .material-icons {
+        color: white;
+      }
+      .mdl-button--fab {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+      }
       </style>
 
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Arcadia Group</span>
+
+          <div class="mdl-layout-spacer"></div>
+          <button href="answers.html" class="next-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" style="display:none">
+            <i class="material-icons">navigate_next</i>
+          </button>
+
         </div>
       </header>
       <main class="mdl-layout__content mdl-color--grey-100">
@@ -109,6 +123,7 @@
         </div>
       </main>
     </div>
+
     <style>
     .video-recorder-outer {
       top: 200px;
@@ -134,9 +149,7 @@
     .video-uploader-upload .btn-primary:hover {
       background-color: #3f51b5;
     }
-
     </style>
-    <!-- <ziggeo width="375" height="281"></ziggeo> -->
     <script>
       var initRecorder = function(){
         var element = document.createElement('ziggeo');
@@ -148,8 +161,17 @@
         element.setAttribute('ziggeo-background-color', 'none')
         document.body.appendChild(element);
       };
+
       document.addEventListener("DOMContentLoaded", function(event) {
         initRecorder();
+        var button = document.querySelector('.next-button');
+        button.addEventListener("click", function( event ) {
+          document.location = 'answers.html';
+        });
+
+        ZiggeoApi.Events.on("submitted", function (data) {
+          button.style.display = 'block';
+        });
       });
     </script>
 
